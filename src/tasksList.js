@@ -106,6 +106,7 @@ class TasksList extends Component {
     deleteAll() {
         const update = []
         this.setState({ toDoList: update })
+        this.setState({ completedList: update })
     }
     deleteAllCompletedTasks() {
         const update = []
