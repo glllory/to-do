@@ -8,7 +8,6 @@ class TasksList extends Component {
 
     constructor(props) {
         super(props);
-
         this.state = {
             userInput: {
                 id: '',
@@ -40,14 +39,8 @@ class TasksList extends Component {
             completedList: [],
 
         }// state done 
-        // binds methods
-        this.handleClick = this.handleClick.bind(this)
-        this.addTask = this.addTask.bind(this)
-        this.deleteTaskfromToDo = this.deleteTaskfromToDo.bind(this);
-        this.deleteTaskfromComplet = this.deleteTaskfromComplet.bind(this);
-        this.submitForm = this.submitForm.bind(this);
-        this.deleteAll = this.deleteAll.bind(this);
-        this.deleteAllCompletedTasks = this.deleteAllCompletedTasks.bind(this);
+
+        // binds methods  = () =>
     }// constructor done here
 
 
@@ -82,12 +75,12 @@ class TasksList extends Component {
         })
     }
 
-    deleteTaskfromToDo = taskToHandle => {
+    deleteTaskfromToDo = (taskToHandle) => {
         const update = this.state.toDoList.filter(task => task.id !== taskToHandle)
         this.setState({ toDoList: update })
     };
 
-    deleteTaskfromComplet = taskToHandle => {
+    deleteTaskfromComplet = (taskToHandle) => {
         const update = this.state.completedList.filter(task => task.id !== taskToHandle)
         this.setState({ completedList: update })
     };
@@ -103,12 +96,12 @@ class TasksList extends Component {
             }
         })
     }
-    deleteAll() {
+    deleteAll = () => {
         const update = []
         this.setState({ toDoList: update })
         this.setState({ completedList: update })
     }
-    deleteAllCompletedTasks() {
+    deleteAllCompletedTasks = () => {
         const update = []
         this.setState({ completedList: update })
     }
@@ -151,4 +144,3 @@ class TasksList extends Component {
 
 }
 export default TasksList;
-
