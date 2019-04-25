@@ -2,29 +2,31 @@ import React, { Component } from 'react';
 import '../Reset.css';
 import '../App.scss';
 import { connect } from 'react-redux';
-import { completeToDo } from '../actions';
+import { deleteToDo, addCompleteToDo } from '../actions';
 
 class ListItem extends Component {
-    completeClick = completeTodoId => {
-        const { completeToDo } = this.props;
-        completeToDo(completeTodoId);
+
+    completeClick = TodoId => {
+        const { addCompleteToDo, deleteToDo } = this.props;
+        addCompleteToDo(TodoId);
+        deleteToDo(TodoId);
     };
+
+    deleteClick = TodoId => {
+        const { deleteToDo } = this.props;
+        deleteToDo(TodoId);
+    };
+
     render() {
         const { todoId, todo } = this.props;
         return (
-            <div key="toDoName" className="col s10 offset-s1 to-do-list-item black">
+            <div key="toDoName">
                 <div className="item">
-                    <i className={"far fa-circle"}></i>
+                    <i className={"far fa-circle"} onClick={() => this.completeClick(todoId)}></i>
                     {todo.title}
-                    <span
-                        onClick={() => this.completeClick(todoId)}
-                        className="complete-todo-item waves-effect waves-light blue lighten-5 blue-text text-darken-4 btn"
-                    >
-                        <i className="large material-icons">Done</i>
-                    </span>
                     <div className="rightButtons">
-                        <i class="fas fa-pencil-alt" onClick={this.props.editTask}></i>
-                        <i class="fas fa-times-circle" onClick={this.props.deleteTask} ></i>
+                        <i className="fas fa-pencil-alt"></i>
+                        <i className="fas fa-times-circle" onClick={() => this.deleteClick(todoId)}></i>
                     </div>
                 </div>
             </div>
@@ -32,4 +34,4 @@ class ListItem extends Component {
     }
 }
 
-export default connect(null, { completeToDo })(ListItem);
+export default connect(null, { deleteToDo, addCompleteToDo })(ListItem);
