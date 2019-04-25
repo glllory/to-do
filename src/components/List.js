@@ -3,9 +3,9 @@ import '../Reset.css';
 import '../App.scss';
 import { Jumbotron } from 'reactstrap';
 import { connect } from 'react-redux';
-import _ from 'lodash';
 import * as actions from '../actions';
-import ListItem from './ListItem';
+import UncompletedList from './UncompletedList'
+import CompletedList from './CompletedList'
 
 class List extends Component {
     constructor(props) {
@@ -48,26 +48,6 @@ class List extends Component {
             </form>
         );
     }
-    renderToDo() {
-        const { data } = this.props;
-        const toDos = _.map(data, (value, key) => {
-            console.log("value: " + value);
-            console.log("key: " + key);
-            return <ListItem key={key} todoId={key} todo={value} />;
-        });
-        if (!_.isEmpty(toDos)) {
-            return toDos;
-        }
-        return (
-            <div>
-                <h4>You have no more things ToDo!</h4>
-            </div>
-        );
-    }
-
-    componentWillMount() {
-        this.props.fetchToDos();
-    }
 
     render() {
         return (
@@ -79,14 +59,15 @@ class List extends Component {
                 </div>
                 <hr className="my-2" />
                 {this.renderForm()}
-                {this.renderToDo()}
+
+                <UncompletedList />
+                <hr className="my-2" />
+                <p>Completed To Do:</p>
+                <CompletedList />
+
             </Jumbotron>
         );
     }
 }
-const mapStateToProps = ({ data }) => {
-    return {
-        data
-    }
-}
-export default connect(mapStateToProps, actions)(List);
+
+export default connect(null, actions)(List);
