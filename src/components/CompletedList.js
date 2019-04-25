@@ -18,8 +18,8 @@ class CompletedList extends Component {
     }
 
     render() {
-        const { data } = this.props;
-        const toDos = _.map(data, (value, key) => {
+        const { data1 } = this.props;
+        const toDos = _.map(data1, (value, key) => {
             return <ListItem key={key} todoId={key} todo={value} />;
         });
         if (!_.isEmpty(toDos)) {
@@ -32,9 +32,9 @@ class CompletedList extends Component {
         );
     }
 }
-const mapStateToProps = ({ data }) => {
+const mapStateToProps = ({ data1 }) => {
     return {
-        data
+        data1
     }
 }
 export default connect(mapStateToProps, { fetchCompletedToDos })(CompletedList);
