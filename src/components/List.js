@@ -53,9 +53,8 @@ class List extends Component {
         return (
             <Jumbotron>
                 <div className='deleteBtn'>
-                    {/* <p class="cBtn" onClick={} ><i className="fas fa-trash"></i>All</p> */}
-                    <p className="cBtn"  ><i className="fas fa-trash"></i>All</p>
-                    <p className="cBtn"  ><i className="fas fa-trash"></i>Completed Tasks</p>
+                    <p className="cBtn" onClick={this.props.deleteAll} ><i className="fas fa-trash"></i>All</p>
+                    <p className="cBtn" onClick={this.props.deleteAllCompleted} ><i className="fas fa-trash"></i>Completed Tasks</p>
                 </div>
                 <hr className="my-2" />
                 {this.renderForm()}

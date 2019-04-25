@@ -4,17 +4,17 @@ import '../App.scss';
 import { connect } from 'react-redux';
 import { deleteToDo, addCompleteToDo } from '../actions';
 
-class ListItem extends Component {
+class UnCompletedItem extends Component {
 
-    completeClick = TodoId => {
+    completeClick = (todoId, todo) => {
         const { addCompleteToDo, deleteToDo } = this.props;
-        addCompleteToDo(TodoId);
-        deleteToDo(TodoId);
+        deleteToDo(todoId);
+        addCompleteToDo(todo);
     };
 
-    deleteClick = TodoId => {
+    deleteClick = todoId => {
         const { deleteToDo } = this.props;
-        deleteToDo(TodoId);
+        deleteToDo(todoId);
     };
 
     render() {
@@ -22,7 +22,7 @@ class ListItem extends Component {
         return (
             <div key="toDoName">
                 <div className="item">
-                    <i className={"far fa-circle"} onClick={() => this.completeClick(todoId)}></i>
+                    <i className={"far fa-circle"} onClick={() => this.completeClick(todoId, todo)}></i>
                     {todo.title}
                     <div className="rightButtons">
                         <i className="fas fa-pencil-alt"></i>
@@ -34,4 +34,4 @@ class ListItem extends Component {
     }
 }
 
-export default connect(null, { deleteToDo, addCompleteToDo })(ListItem);
+export default connect(null, { deleteToDo, addCompleteToDo })(UnCompletedItem);

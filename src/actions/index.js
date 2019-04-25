@@ -1,8 +1,6 @@
 import { todosRef } from '../firebase'
 import { completetodosRef } from '../firebase'
-
-const FETCH_TODOS = 'FETCH_TODOS';
-export const FETCH_COMPLETEDTODOS = "FETCH_COMPLETEDTODOS";
+import { FETCH_TODOS, FETCH_COMPLETEDTODOS } from './types'
 
 // Uncompleted To Do list "child"
 export const addToDo = newToDo => async dispatch => {
@@ -34,4 +32,15 @@ export const fetchCompletedToDos = () => async dispatch => {
             payload: snapshot.val()
         });
     });
+};
+
+// delete all list
+export const deleteAll = () => async dispatch => {
+    todosRef.remove();
+    completetodosRef.remove();
+};
+
+// delete completed list
+export const deleteAllCompleted = () => async dispatch => {
+    completetodosRef.remove();
 };

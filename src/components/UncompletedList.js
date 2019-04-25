@@ -4,27 +4,18 @@ import '../App.scss';
 import { connect } from 'react-redux';
 import { fetchToDos } from '../actions';
 import _ from 'lodash';
-import ListItem from './ListItem';
+import UnCompletedItem from './UnCompletedItem';
 
 class UncompletedList extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-        }// state done 
-    }// constructor done 
-
 
     componentWillMount() {
         this.props.fetchToDos();
     }
 
     render() {
-        const { data } = this.props;
-        console.log('hereee', data);
-        const toDos = _.map(data, (value, key) => {
-            console.log("value: " + value);
-            console.log("key: " + key);
-            return <ListItem key={key} todoId={key} todo={value} />;
+        const { uncompletedState } = this.props;
+        const toDos = _.map(uncompletedState, (value, key) => {
+            return <UnCompletedItem key={key} todoId={key} todo={value} />;
         });
         if (!_.isEmpty(toDos)) {
             return toDos;
@@ -37,9 +28,9 @@ class UncompletedList extends Component {
     }
 }
 
-const mapStateToProps = ({ data }) => {
+const mapStateToProps = ({ uncompletedState }) => {
     return {
-        data
+        uncompletedState
     }
 }
 export default connect(mapStateToProps, { fetchToDos })(UncompletedList);
