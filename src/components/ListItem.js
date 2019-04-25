@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import '../Reset.css';
+import '../App.scss';
 import { connect } from 'react-redux';
 import { completeToDo } from '../actions';
 
@@ -11,7 +13,8 @@ class ListItem extends Component {
         const { todoId, todo } = this.props;
         return (
             <div key="toDoName" className="col s10 offset-s1 to-do-list-item black">
-                <h4>
+                <div className="item">
+                    <i className={"far fa-circle"}></i>
                     {todo.title}
                     <span
                         onClick={() => this.completeClick(todoId)}
@@ -19,7 +22,11 @@ class ListItem extends Component {
                     >
                         <i className="large material-icons">Done</i>
                     </span>
-                </h4>
+                    <div className="rightButtons">
+                        <i class="fas fa-pencil-alt" onClick={this.props.editTask}></i>
+                        <i class="fas fa-times-circle" onClick={this.props.deleteTask} ></i>
+                    </div>
+                </div>
             </div>
         );
     }

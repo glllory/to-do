@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './Reset.css';
-import './App.scss';
+import '../Reset.css';
+import '../App.scss';
 import moment from 'moment';
 
 class Header extends Component {

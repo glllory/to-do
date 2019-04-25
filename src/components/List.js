@@ -16,7 +16,6 @@ class List extends Component {
     }// constructor done 
 
     inputChange = e => {
-        console.log(e.target.value);
         this.setState({ task: e.target.value });
     };
 
@@ -28,6 +27,27 @@ class List extends Component {
         this.setState({ task: "" });
     };
 
+    renderForm() {
+        return (
+            <form onSubmit={this.formSubmit}>
+                <button
+                    className='button'
+                    type='submit'
+                    disabled={!this.state.task}
+                >
+                    <i className="fa fa-plus"></i>
+                </button>
+                <input
+                    className='input'
+                    type='text'
+                    name='taskCont'
+                    value={this.state.formValue}
+                    onChange={this.inputChange}
+                    id="toDoNext"
+                    placeholder="New Task" />
+            </form>
+        );
+    }
     renderToDo() {
         const { data } = this.props;
         const toDos = _.map(data, (value, key) => {
@@ -46,6 +66,7 @@ class List extends Component {
     componentWillMount() {
         this.props.fetchToDos();
     }
+
     render() {
         return (
             <Jumbotron>
@@ -55,26 +76,7 @@ class List extends Component {
                     <p className="cBtn"  ><i className="fas fa-trash"></i>Completed Tasks</p>
                 </div>
                 <hr className="my-2" />
-                <div>
-                    <form onSubmit={this.formSubmit}>
-                        <button
-                            className='button'
-                            type='submit'
-                            disabled={!this.state.task}
-                        >
-                            <i className="fa fa-plus"></i>
-                        </button>
-                        <input
-                            className='input'
-                            type='text'
-                            name='taskCont'
-                            value={this.state.formValue}
-                            onChange={this.inputChange}
-                            id="toDoNext"
-                            placeholder="New Task" />
-                    </form>
-
-                </div>
+                {this.renderForm()}
                 {this.renderToDo()}
             </Jumbotron>
         );
