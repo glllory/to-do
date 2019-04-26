@@ -1,5 +1,4 @@
-import { todosRef } from '../firebase'
-import { completetodosRef } from '../firebase'
+import { todosRef, completetodosRef } from '../firebase/firebase'
 import { FETCH_TODOS, FETCH_COMPLETEDTODOS } from './types'
 
 // Uncompleted To Do list "child"

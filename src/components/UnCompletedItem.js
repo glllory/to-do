@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../Reset.css';
-import '../App.scss';
+import '../containers/Reset.css';
+import '../containers/App.scss';
 import { connect } from 'react-redux';
 import { deleteToDo, addCompleteToDo } from '../actions';
 

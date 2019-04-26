@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../Reset.css';
-import '../App.scss';
+import '../containers/Reset.css';
+import '../containers/App.scss';
 import { Jumbotron } from 'reactstrap';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
