@@ -12,9 +12,17 @@ const buttonList = {
             return provider;
         }
     },
+    twitter: {
+        visible: true,
+        provider: () => auth.twitterOAuth()
+    },
     facebook: {
         visible: true,
         provider: () => auth.facebookOAuth()
+    },
+    google: {
+        visible: true,
+        provider: () => auth.googleOAuth()
     }
 };
 
@@ -30,8 +38,10 @@ class Login extends Component {
     render() {
         return (
             <Layout contentCenter={true}>
+                <p>Login Login Login</p>
                 <p>Connect With</p>
                 <SocialButtonList buttonList={buttonList} auth={auth.getAuth} />
+                <p>Login Login Login</p>
             </Layout>
         );
     }
