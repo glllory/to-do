@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import { Jumbotron } from 'reactstrap';
+import { Jumbotron, Row, Col } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './bootstrap-social.css';
-
 
 const propTypes = {
     buttonList: PropTypes.shape({
@@ -74,11 +73,18 @@ const SocialButtonList = ({ history, buttonList, auth, currentProviders }) => {
     return (
 
         <Jumbotron>
-            <p>Hello, world!</p>
-            <div className="btn__social--list">
-                {Object.keys(buttonList).map(renderButtonList)}
-            </div>
+
+            <Row>
+                <Col></Col>
+                <Col lg={6}>
+                    {Object.keys(buttonList).map(renderButtonList)}
+                </Col>
+                <Col></Col>
+            </Row>
+
+
         </Jumbotron>
+
     );
 };
 

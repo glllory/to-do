@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import '../containers/Reset.css';
-import '../containers/App.scss';
-import { Jumbotron } from 'reactstrap';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import UncompletedList from './UncompletedList'
 import CompletedList from './CompletedList'
+import { Button, ButtonToolbar } from 'reactstrap';
 
 class List extends Component {
     constructor(props) {
@@ -41,7 +39,7 @@ class List extends Component {
                     className='input'
                     type='text'
                     name='taskCont'
-                    value={this.state.formValue}
+                    value={this.state.task}
                     onChange={this.inputChange}
                     id="toDoNext"
                     placeholder="New Task" />
@@ -51,20 +49,20 @@ class List extends Component {
 
     render() {
         return (
-            <Jumbotron>
+            <React.Fragment>
+                <br />
                 <div className='deleteBtn'>
                     <p className="cBtn" onClick={this.props.deleteAll} ><i className="fas fa-trash"></i>All</p>
                     <p className="cBtn" onClick={this.props.deleteAllCompleted} ><i className="fas fa-trash"></i>Completed Tasks</p>
                 </div>
                 <hr className="my-2" />
                 {this.renderForm()}
-
-                <UncompletedList />
                 <hr className="my-2" />
-                <p>Completed To Do:</p>
+                <br />
+                <UncompletedList />
                 <CompletedList />
 
-            </Jumbotron>
+            </React.Fragment>
         );
     }
 }

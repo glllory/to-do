@@ -1,0 +1,27 @@
+
+  .profile--photo {
+    border-radius: 50%;
+    width: 160px;
+    height: 160px;
+    border: 5px solid #fff;
+    margin-top: -140px;
+  }
+  
+.greating {
+    font-size: 35px;
+    font-family: 'Signika', sans-serif;
+    color:  #333536; 
+}
+
+.todayTime{
+    font-size: 20px;
+    margin-top: 0px;
+    font-family: 'Signika', sans-serif;
+    color: #333536; 
+}
+
+.card {
+    background-color: transparent !important ;
+    border: none !important ;
+    
+  }

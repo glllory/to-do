@@ -16,11 +16,17 @@ class UncompletedList extends Component {
             return <UnCompletedItem key={key} todoId={key} todo={value} />;
         });
         if (!_.isEmpty(toDos)) {
-            return toDos;
+            return (
+                <div>
+                    <p>Tasks: </p>
+                    {toDos}
+                </div>
+            );
         }
         return (
             <div>
-                <h4>You have no more things ToDo!</h4>
+                <p>Tasks: </p>
+                <p>You have nothing to do !</p>
             </div>
         );
     }

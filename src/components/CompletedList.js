@@ -16,12 +16,16 @@ class CompletedList extends Component {
             return <CompletedItem key={key} todoId={key} todo={value} />;
         });
         if (!_.isEmpty(toDos)) {
-            return toDos;
+            return (
+                <div>
+                    <hr className="my-2" />
+                    <p>Completed Tasks:</p>
+                    {toDos}
+                </div>
+            );
         }
         return (
-            <div>
-                <h4>you haven't done anything!</h4>
-            </div>
+            null
         );
     }
 }

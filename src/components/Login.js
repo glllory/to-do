@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Layout from '../containers/Layout';
+import Header from './Header';
 import SocialButtonList from './SocialButtonList';
 import { auth } from '../firebase';
 
@@ -12,10 +13,6 @@ const buttonList = {
             return provider;
         }
     },
-    twitter: {
-        visible: true,
-        provider: () => auth.twitterOAuth()
-    },
     facebook: {
         visible: true,
         provider: () => auth.facebookOAuth()
@@ -23,6 +20,10 @@ const buttonList = {
     google: {
         visible: true,
         provider: () => auth.googleOAuth()
+    },
+    twitter: {
+        visible: true,
+        provider: () => auth.twitterOAuth()
     }
 };
 
@@ -37,11 +38,9 @@ class Login extends Component {
 
     render() {
         return (
-            <Layout contentCenter={true}>
-                <p>Login Login Login</p>
-                <p>Connect With</p>
+            <Layout>
+                <Header />
                 <SocialButtonList buttonList={buttonList} auth={auth.getAuth} />
-                <p>Login Login Login</p>
             </Layout>
         );
     }

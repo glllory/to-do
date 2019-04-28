@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Layout from '../containers/Layout'
 import SocialProfileList from './SocialProfileList';
 import { auth } from '../firebase';
 import List from './List';
+import { Jumbotron, Button, Row, Col } from 'reactstrap';
+import '../containers/Reset.css';
+import '../containers/App.scss';
 
 class Dashboard extends Component {
     static propTypes = {
@@ -34,20 +38,23 @@ class Dashboard extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Secure Area</h1>
-                <SocialProfileList
-                    auth={auth.getAuth}
-                    providerData={this.state.providerData}
-                />
-                <button
-                    className=""
-                    onClick={() => auth.getAuth().signOut()}
-                >
-                    Logout
-                </button>
-                <List />
-            </div>
+            <Layout>
+                <Jumbotron>
+                    <Row>
+                        <Col ></Col>
+                        <Col lg={6} className="text-center">
+                        </Col>
+                        <Col className="text-right"><Button size="sm" onClick={() => auth.getAuth().signOut()}> Sign Out </Button></Col>
+                    </Row>
+
+                    <SocialProfileList
+                        auth={auth.getAuth}
+                        providerData={this.state.providerData}
+                    />
+
+                    <List />
+                </Jumbotron>
+            </Layout>
         );
     }
 }

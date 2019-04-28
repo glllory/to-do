@@ -1,7 +1,8 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
-
-import './SocialProfileList.css';
+import Header from './Header';
+import { Row, Col, Card } from 'reactstrap';
+import './header.css'
 
 class SocialProfileList extends PureComponent {
     static propTypes = {
@@ -13,24 +14,33 @@ class SocialProfileList extends PureComponent {
         const providerName = providerId.split('.')[0];
 
         return (
-            <div className="container__profile" key={providerName}>
+            <div key={providerName}>
                 <img
                     src={photoURL}
                     alt={providerName}
-                    className="container__profile--photo"
+                    className="profile--photo"
                 />
-                <p>{displayName}</p>
             </div>
         );
     };
 
     render() {
         return (
-            <Fragment>
-                <div className="btn__profiles--list">
-                    {this.props.providerData.map(this.renderProfileList)}
-                </div>
-            </Fragment>
+            <React.Fragment>
+                <Row>
+                    <Col ></Col>
+                    <Col lg={6} className="text-center">
+                        {this.props.providerData.map(this.renderProfileList)}
+                    </Col>
+                    <Col></Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Header displayName={this.props.providerData[0].displayName} />
+                    </Col>
+                </Row>
+
+            </React.Fragment>
         );
     }
 }

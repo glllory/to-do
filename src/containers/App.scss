@@ -27,68 +27,31 @@ background: linear-gradient(to top, #FFE201, #E3BE1C);
   }
 }
 
-.header {
-  grid-column: span 3;
-  margin-top: 30px;
-  padding: 30px;
-  text-align: center;
-  font-size: 1.4em;
+.jumbotron {
+  margin-top: 100px !important ;
+  padding-top: 25px !important ;
+  background-color: #ffffff !important ;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important ;
+  
 }
 
-h1 {
-  font-size-adjust: 70px;
-  color: #ffffff;
-  font-family: 'Fredoka One', cursive;
-}
-
-.todayTime{
-  font-size: 30px;
+.deleteBtn{
+  p{
+  color: #848785;
   font-family: 'Signika', sans-serif;
-  color: #ffffff;
+  font-size: 20px;
+  }
+  i{
+    font-size: 15px;
+  }
 }
-
-nav {
-  padding: 20px;
+.cBtn:hover{
+  color: #333536; 
+  cursor: pointer;
 }
- 
-aside {
-  padding: 20px;
-}
-
-
-
-p {
+.cBtn{
   display: inline-block;
-  margin: 10px;
-  font-size: 25px;
-  font-family: 'Signika', sans-serif;
-  color: #333536;
-}
-
-
-i {
-  margin: 10px;
-  font-size: 25px;
-  text-align: center;
-}
-
-input, button {
-  border: 0px; 
-}
-
-.input{
-  color:#333536;
-  margin-left: 6px;
-  font-family: 'Signika', sans-serif;
-  font-size: 25px;
-}
-
-input:focus{
-    outline: none;
-}
-
-form {
-  margin-bottom: 20px;
+  margin: 5px;
 }
 
 .button{
@@ -98,6 +61,40 @@ form {
   outline: none;
 }
 
+i {
+  margin: 10px;
+  font-size: 20px;
+  text-align: center;
+}
+
+
+
+input, button {
+  border: 0px; 
+}
+
+.input{
+  color:#848785;
+  margin-left: 6px;
+  font-family: 'Signika', sans-serif;
+  font-size: 20px;
+}
+
+input:focus{
+    outline: none;
+    color: #333536;
+}
+
+.fa-plus {
+  color: #848785;
+}
+
+.fa-plus:hover {
+  color:  #333536;
+  cursor: pointer;
+}
+
+
 .rightButtons {
 float: right;
 }
@@ -106,11 +103,11 @@ float: right;
 color: #07D400;
 }
 
-.fa-circle, .fa-plus {
+.fa-circle {
   color: #333536;
 }
 
-.fa-plus:hover, .fa-check-circle:hover {
+.fa-check-circle:hover {
   color: #07D400;
   cursor: pointer;
 }
@@ -145,30 +142,9 @@ color: #07D400;
   text-decoration: line-through;
 }
 
-.jumbotron {
-  background-color: #ffffff !important ;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important ;
-  
-}
 
-.deleteBtn{
-  p{
-  color: #848785;
-  font-family: 'Signika', sans-serif;
-  font-size: 20px;
-  }
-  i{
-    font-size: 15px;
-  }
-}
-.cBtn:hover{
-  
-  color: #333536; 
-  font-family: 'Signika', sans-serif;
-  font-size: 20px;
-  cursor: pointer;
-  
-}
+
+
 
 .rcap{
   color: #848785;
