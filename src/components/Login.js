@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Layout from '../containers/Layout';
-import Header from './Header';
 import SocialButtonList from './SocialButtonList';
 import { auth } from '../firebase';
 
@@ -39,7 +38,6 @@ class Login extends Component {
     render() {
         return (
             <Layout>
-                <Header />
                 <SocialButtonList buttonList={buttonList} auth={auth.getAuth} />
             </Layout>
         );

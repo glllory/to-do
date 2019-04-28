@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../containers/Reset.css';
 import './header.css'
 import moment from 'moment';
+import Moment from 'react-moment';
 
 class Header extends Component {
 
@@ -28,21 +29,15 @@ class Header extends Component {
     render() {
         var user = this.props.displayName;
 
-        if (user == null) {
-            return (
-                <div className="text-center">
-                    <p>Be More Productive</p>
-                    <p>&</p>
-                    <p>Signin to create your to do list</p>
-                </div>
-            )
-        } else {
+        if (user) {
             return (
                 <div className="text-center">
                     <p className="greating">{"Good " + this.getGreetingTime(moment()) + ", " + user}</p>
-                    <p className="todayTime">It's {moment().format('ddd, D MMM YYYY, h:mm A')}</p>
+                    <p className="todayTime">It's <Moment format="ddd, D MMM YYYY, h:mm A" /> </p>
                 </div>
             )
+        } else {
+            return null;
         }
 
 

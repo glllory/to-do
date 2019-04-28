@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom';
 import { Jumbotron, Row, Col } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './bootstrap-social.css';
+import './header.css';
+
 
 const propTypes = {
     buttonList: PropTypes.shape({
@@ -74,7 +76,12 @@ const SocialButtonList = ({ history, buttonList, auth, currentProviders }) => {
 
         <Jumbotron>
 
-            <Row>
+            <div className="text-center greating">
+                <p>Be More Productive</p>
+                <p>&</p>
+                <p>Signin to create your to do list</p>
+            </div>
+            <Row className="login-butten">
                 <Col></Col>
                 <Col lg={6}>
                     {Object.keys(buttonList).map(renderButtonList)}
