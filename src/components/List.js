@@ -25,16 +25,13 @@ class List extends Component {
 
     formSubmit = e => {
         e.preventDefault();
-        const { task } = this.state;
-        const { deadline } = this.state;
-        console.log("beforeSUBMIT: ", this.state.deadline.getDate());
+        const { task, deadline } = this.state;
         const { addToDo } = this.props;
-        addToDo({ task, deadline: deadline.getDate() });
+        addToDo({ task, deadline: deadline.getTime() / 1000 | 0 });
         this.setState({ task: "", deadline: new Date() });
     };
 
     renderForm() {
-        console.log("initalState: ", this.state.deadline);
         return (
             <form onSubmit={this.formSubmit}>
                 <button
@@ -54,6 +51,7 @@ class List extends Component {
                     placeholder="New Task" />
                 <Calendarbox
                     dateChange={this.dateChange}
+                    deadline={this.state.deadline}
                 />
             </form>
         );

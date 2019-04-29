@@ -9,12 +9,10 @@ class Calendarbox extends Component {
 
     onChange = date => {
         this.setState({ date })
-        console.log("dateYOU: ", date);
         this.props.dateChange({ date });
     }
 
     render() {
-        console.log("fromPROPS: ", this.props.deadline);
         return (
             <div>
                 <Calendar
