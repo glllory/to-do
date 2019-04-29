@@ -5,7 +5,6 @@ import SocialProfileList from './SocialProfileList';
 import { auth } from '../firebase';
 import List from './List';
 import { Jumbotron, Button, Row, Col } from 'reactstrap';
-import '../containers/Reset.css';
 import '../containers/App.scss';
 
 class Dashboard extends Component {

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../containers/Reset.css';
 import './header.css'
 import moment from 'moment';
 import Moment from 'react-moment';

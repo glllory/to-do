@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import Calendarbox from './Calendar';
 import UncompletedList from './UncompletedList'
 import CompletedList from './CompletedList'
 import { Button, ButtonToolbar } from 'reactstrap';
@@ -9,7 +10,8 @@ class List extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            task: ""
+            task: "",
+            deadline: new Date()
         }// state done 
     }// constructor done 
 
@@ -17,15 +19,22 @@ class List extends Component {
         this.setState({ task: e.target.value });
     };
 
+    dateChange = date => {
+        this.setState({ deadline: date.date });
+    }
+
     formSubmit = e => {
         e.preventDefault();
         const { task } = this.state;
+        const { deadline } = this.state;
+        console.log("beforeSUBMIT: ", this.state.deadline.getDate());
         const { addToDo } = this.props;
-        addToDo({ title: task });
-        this.setState({ task: "" });
+        addToDo({ task, deadline: deadline.getDate() });
+        this.setState({ task: "", deadline: new Date() });
     };
 
     renderForm() {
+        console.log("initalState: ", this.state.deadline);
         return (
             <form onSubmit={this.formSubmit}>
                 <button
@@ -43,6 +52,9 @@ class List extends Component {
                     onChange={this.inputChange}
                     id="toDoNext"
                     placeholder="New Task" />
+                <Calendarbox
+                    dateChange={this.dateChange}
+                />
             </form>
         );
     }

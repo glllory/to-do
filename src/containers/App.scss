@@ -3,29 +3,11 @@
 @import url('https://fonts.googleapis.com/css?family=Signika'); //tasks
 
 
-body {
-  font-family: arial; 
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-background: #FFE201;
-background: -webkit-linear-gradient(bottom, #FFE201, #E3BE1C);
-background: -moz-linear-gradient(bottom, #FFE201, #E3BE1C);
-background: linear-gradient(to top, #FFE201, #E3BE1C);
-}
+// body {
+//   font-family: arial; 
+// }
 
 
-@media (min-width: 768px) {
-  .container {
-    display: grid;
-    grid-template-columns: 200px 1fr 200px;
-    grid-template-rows: auto 1fr auto;
-
-  }
-}
 
 .jumbotron {
   margin-top: 100px !important ;
@@ -78,6 +60,7 @@ input, button {
   margin-left: 6px;
   font-family: 'Signika', sans-serif;
   font-size: 20px;
+  width: 100px;
 }
 
 input:focus{
@@ -151,4 +134,9 @@ color: #07D400;
   font-family: 'Signika', sans-serif;
   font-size: 20px;
   margin-left: 15px;
+}
+
+.footer{
+  background-color: #07D400;
+  text-align: center;
 }
