@@ -8,13 +8,20 @@ export const addToDo = newToDo => async dispatch => {
 export const deleteToDo = ToDoID => async dispatch => {
     todosRef.child(ToDoID).remove();
 };
-export const fetchToDos = () => async dispatch => {
+export const fetchToDos = uEmail => async dispatch => {
     todosRef.on("value", snapshot => {
         dispatch({
             type: FETCH_TODOS,
             payload: snapshot.val()
         });
     });
+    // todosRef.orderByChild('uEmail').equalTo(uEmail).on("value", snapshot => {
+    //     dispatch({
+    //         type: FETCH_TODOS,
+    //         payload: snapshot.val()
+    //     });
+    // });
+
 };
 
 // Completed To Do list "child"

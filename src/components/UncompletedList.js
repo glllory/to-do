@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchToDos } from '../actions';
 import _ from 'lodash';
+import { auth } from '../firebase';
 import UnCompletedItem from './UnCompletedItem';
 
 class UncompletedList extends Component {
 
     componentWillMount() {
-        this.props.fetchToDos();
+        this.props.fetchToDos(auth.getAuth().currentUser.email);
     }
 
     render() {

@@ -1,28 +1,40 @@
-import React, { Component } from 'react';
-import Calendar from 'react-calendar';
+import React from "react";
+import DatePicker from "react-datepicker";
 
-class Calendarbox extends Component {
+import "react-datepicker/dist/react-datepicker.css";
 
-    state = {
-        date: new Date(),
+// CSS Modules, react-datepicker-cssmodules.css
+// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+
+class Calendarbox extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            date: new Date()
+        };
     }
 
-    onChange = date => {
-        this.setState({ date })
+    handleChange = (date) => {
+        if (date) {
+            this.setState({ date });
+        } else {
+            this.setState({ date: new Date() });
+        }
         this.props.dateChange({ date });
     }
 
     render() {
         return (
-            <div>
-                <Calendar
-                    onChange={this.onChange}
-                    value={this.props.deadline}
-                />
-            </div>
+            <DatePicker
+                selected={this.props.deadline}
+                onChange={this.handleChange}
+                showTimeSelect
+                timeFormat="HH:mm"
+                timeIntervals={15}
+                dateFormat="MMMM d, yyyy h:mm aa"
+                timeCaption="time"
+            />
         );
     }
 }
-
 export default Calendarbox;
-

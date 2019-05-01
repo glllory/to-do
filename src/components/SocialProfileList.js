@@ -1,8 +1,7 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Header from './Header';
-import { Row, Col, Card } from 'reactstrap';
-import './header.css'
+import { Row, Col } from 'reactstrap';
 
 class SocialProfileList extends PureComponent {
     static propTypes = {
@@ -10,7 +9,7 @@ class SocialProfileList extends PureComponent {
         providerData: PropTypes.arrayOf(PropTypes.object).isRequired,
     };
 
-    renderProfileList = ({ providerId, photoURL, displayName }) => {
+    renderProfileList = ({ providerId, photoURL }) => {
         const providerName = providerId.split('.')[0];
 
         return (

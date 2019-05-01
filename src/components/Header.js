@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './header.css'
 import moment from 'moment';
 import Moment from 'react-moment';
 
@@ -31,8 +30,8 @@ class Header extends Component {
         if (user) {
             return (
                 <div className="text-center">
-                    <p className="greating">{"Good " + this.getGreetingTime(moment()) + ", " + user}</p>
-                    <p className="todayTime">It's <Moment format="ddd, D MMM YYYY, h:mm A" /> </p>
+                    <p className="greating">{`Hi, ${user} ..`}</p>
+                    <p className="todayTime">{"Good " + this.getGreetingTime(moment()) + ", "}It's <Moment format="ddd, D MMM YYYY, h:mm A" /> </p>
                 </div>
             )
         } else {

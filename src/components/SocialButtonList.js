@@ -4,21 +4,17 @@ import { withRouter } from 'react-router-dom';
 import { Jumbotron, Row, Col } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './bootstrap-social.css';
-import './header.css';
 
 
 const propTypes = {
     buttonList: PropTypes.shape({
         github: PropTypes.shape({
-            visible: PropTypes.bool.isRequired,
             provider: PropTypes.func.isRequired
         }),
         twitter: PropTypes.shape({
-            visible: PropTypes.bool.isRequired,
             provider: PropTypes.func.isRequired
         }),
         facebook: PropTypes.shape({
-            visible: PropTypes.bool.isRequired,
             provider: PropTypes.func.isRequired
         })
     }).isRequired,
@@ -55,7 +51,6 @@ const SocialButtonList = ({ history, buttonList, auth, currentProviders }) => {
     };
 
     const renderButtonList = provder => {
-        const visible = buttonList[provder].visible;
         if (!auth().currentUser) {
             return (
                 <a
@@ -73,9 +68,7 @@ const SocialButtonList = ({ history, buttonList, auth, currentProviders }) => {
     };
 
     return (
-
         <Jumbotron>
-
             <div className="text-center greating">
                 <p>Be More Productive</p>
                 <p>&</p>
@@ -88,10 +81,7 @@ const SocialButtonList = ({ history, buttonList, auth, currentProviders }) => {
                 </Col>
                 <Col></Col>
             </Row>
-
-
         </Jumbotron>
-
     );
 };
 
