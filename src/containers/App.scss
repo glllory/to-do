@@ -3,22 +3,20 @@
 
 
 body {
-  background-color: #0D003D !important;
+  background-color: #000249 !important;
 }
 
 p {
   color: #0D003D;
+  font-weight: bold; 
+  font-size: 20px;
 }
 i{
-  color: yellow;
+  color: #0D003D;
   margin: 10px;
   font-size: 20px;
   text-align: left;
   font-style: normal;
-}
-
-span{
-  color: #07D400;
 }
 
 .btn-secondary {
@@ -43,7 +41,6 @@ span{
   color: #848785;
   font-size: 15px;
   margin: 55px;
-
 }
 .rightButtons {
   float: right;
@@ -61,8 +58,9 @@ span{
 .fa-check-circle {
 color: #ee2b47 ;
 }
-.item:hover{
-  background-color: #EDEDED;
+.item:hover{ 
+  background-color: rgb(248, 246, 246);
+  // #EDEDED
  .fa-times-circle{
   cursor: pointer;
   color: #0D003D;}
@@ -74,24 +72,17 @@ color: #ee2b47 ;
   color: #ee2b47;
   cursor: pointer;} 
 }
-
 // ###################################
 
 // Delete ALL and Completed buttons
 // ###################################
-.deleteBtn{
-  // p{
-  // color: #848785;
-  // font-size: 20px;
-  // }
-  i{
-    font-size: 15px;
-    color: orange;
-  }
-}
 .cBtn:hover{
-  color: #333536; 
+  color: #ee2b47; 
   cursor: pointer;
+  i{
+    color: #ee2b47; 
+
+  }
 }
 .cBtn{
   display: inline-block;
@@ -108,28 +99,23 @@ color: #ee2b47 ;
 input, button {
   border: 0px; 
 }
-.input{
+
+input{
   margin-left: 6px;
-  font-size: 20px;
+  font-size: 20px !important;
+  color: #848785 ;
 }
 input:focus{
   outline: none;
+  color: #0D003D;
 }
 .fa-plus {
-  color: #848785;
+  color: #0D003D;
 }
 .fa-plus:hover {
-  color:  #333536;
+  color:  #ee2b47;
   cursor: pointer;
 }
-
-
-// .rcap{
-//   color: palevioletred;
-//   font-size: 20px;
-//   margin-left: 15px;
-// }
-
 
 
 // Profile --> header
@@ -141,12 +127,18 @@ input:focus{
   margin-top: -140px;
 }
 .greating {
+  color: #0D003D;
   font-size: 35px;
   font-family: 'Archivo Black', sans-serif;
 }
+.sub-greating {
+  font-weight: bold; 
+}
 .todayTime {
+  color: #848785;
   font-size: 20px;
-  margin: 5px;
+  margin: 0px;
+  font-weight: normal;
 }
 .card {
  background-color: transparent !important ;
@@ -159,4 +151,11 @@ margin-top: 30px;
 // Footer
 .footer{
   text-align: center;
+  color: white;
+}
+.fa-heart{
+  color: #ee2b47;
+  font-size: 15px;
+  padding: 0px;
+  margin: 3px;
 }

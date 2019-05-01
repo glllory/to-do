@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteToDo, addCompleteToDo } from '../actions';
-import { Row, Col, Container } from 'reactstrap';
 
 class UnCompletedItem extends Component {
 
     completeClick = (todoId, todo) => {
         const { addCompleteToDo, deleteToDo } = this.props;
         deleteToDo(todoId);
-        addCompleteToDo(todo);
+        var nowTime = new Date();
+        addCompleteToDo({ deadline: nowTime.getTime() / 1000 | 0, task: todo.task, uEmail: todo.uEmail });
     };
 
     deleteClick = todoId => {
@@ -30,7 +30,7 @@ class UnCompletedItem extends Component {
                     <i className="fas fa-times-circle" onClick={() => this.deleteClick(todoId)}></i>
                 </div>
                 <br />
-                <i className="task-deadline">due: {formatted_date}</i>
+                <i className="task-deadline">Due: {formatted_date}</i>
             </div>
         );
 

@@ -7,7 +7,8 @@ class CompletedItem extends Component {
     unCompleteClick = (todoId, todo) => {
         const { deleteCompleteToDo, addToDo } = this.props;
         deleteCompleteToDo(todoId);
-        addToDo(todo);
+        var nowTime = new Date();
+        addToDo({ deadline: nowTime.getTime() / 1000 | 0, task: todo.task, uEmail: todo.uEmail });
     };
 
     deleteClick = todoId => {
@@ -29,33 +30,10 @@ class CompletedItem extends Component {
                     <i className="fas fa-times-circle" onClick={() => this.deleteClick(todoId)}></i>
                 </div>
                 <br />
-                <i className="task-deadline">due: {formatted_date}</i>
+                <i className="task-deadline">Completed on: {formatted_date}</i>
             </div>
         );
     }
 }
 
 export default connect(null, { deleteCompleteToDo, addToDo })(CompletedItem);
-
-{/* <div className="item">
-<Row>
-    <Col xs={2} md={2} lg={2}>
-        <i className={"fas fa-check-circle"} onClick={() => this.unCompleteClick(todoId, todo)}></i>
-    </Col>
-    <Col xs={8} md={8} lg={8}>
-        <Row>
-            <Col xs={12} md={12} lg={12}>
-                <i>{todo.task}</i>
-            </Col>
-        </Row>
-        <Row>
-            <Col xs={12} md={12} lg={12}>
-                <i>{todo.deadline}</i>
-            </Col>
-        </Row>
-    </Col>
-    <Col xs={2} md={2} lg={2}>
-        <i className="fas fa-times-circle rightButtons" onClick={() => this.deleteClick(todoId)}></i>
-    </Col>
-</Row>
-</div> */}

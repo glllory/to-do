@@ -27,7 +27,7 @@ class UncompletedList extends Component {
         return (
             <div>
                 <p>Tasks: </p>
-                <p>You have nothing to do !</p>
+                <p className="todayTime">You have nothing to do !</p>
             </div>
         );
     }
