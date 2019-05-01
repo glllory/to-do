@@ -5,7 +5,6 @@
 body {
   background-color: #000249 !important;
 }
-
 p {
   color: #0D003D;
   font-weight: bold; 
@@ -18,11 +17,14 @@ i{
   text-align: left;
   font-style: normal;
 }
-
 .btn-secondary {
   color: #fff;
   background-color: #ee2b47 !important;
   border-color: #ee2b47 !important;
+}
+.btn-secondary:hover {
+  background-color: #D12B47 !important;
+  border-color: #D12B47 !important;
 }
 .jumbotron {
   margin-top: 100px !important ;
@@ -40,7 +42,7 @@ i{
 .task-deadline{
   color: #848785;
   font-size: 15px;
-  margin: 55px;
+  margin: 50px;
 }
 .rightButtons {
   float: right;
@@ -104,6 +106,7 @@ input{
   margin-left: 6px;
   font-size: 20px !important;
   color: #848785 ;
+  width: 250px;
 }
 input:focus{
   outline: none;
@@ -131,21 +134,15 @@ input:focus{
   font-size: 35px;
   font-family: 'Archivo Black', sans-serif;
 }
-.sub-greating {
-  font-weight: bold; 
-}
+
 .todayTime {
   color: #848785;
   font-size: 20px;
   margin: 0px;
   font-weight: normal;
 }
-.card {
- background-color: transparent !important ;
- border: none !important ;  
-}
 .login-butten{
-margin-top: 30px;
+margin-top: 20px;
 }
 
 // Footer
@@ -158,4 +155,7 @@ margin-top: 30px;
   font-size: 15px;
   padding: 0px;
   margin: 3px;
+}
+.concat-icon{
+  color: white;
 }

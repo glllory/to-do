@@ -69,10 +69,8 @@ const SocialButtonList = ({ history, buttonList, auth, currentProviders }) => {
 
     return (
         <Jumbotron>
-            <div className="text-center greating">
-                <p>Be More Productive</p>
-                <p>&</p>
-                <p>Signin to create your to do list</p>
+            <div className="text-center">
+                <p className="greating">Be More Productive! <br /> Sign in to create your ToDo list</p>
             </div>
             <Row className="login-butten">
                 <Col></Col>

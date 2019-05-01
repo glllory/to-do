@@ -9,18 +9,18 @@ export const deleteToDo = ToDoID => async dispatch => {
     todosRef.child(ToDoID).remove();
 };
 export const fetchToDos = uEmail => async dispatch => {
-    todosRef.on("value", snapshot => {
-        dispatch({
-            type: FETCH_TODOS,
-            payload: snapshot.val()
-        });
-    });
-    // todosRef.orderByChild('uEmail').equalTo(uEmail).on("value", snapshot => {
+    // todosRef.on("value", snapshot => {
     //     dispatch({
     //         type: FETCH_TODOS,
     //         payload: snapshot.val()
     //     });
     // });
+    todosRef.orderByChild("deadline").on("value", snapshot => {
+        dispatch({
+            type: FETCH_TODOS,
+            payload: snapshot.val()
+        });
+    });
 
 };
 
@@ -32,7 +32,7 @@ export const deleteCompleteToDo = ToDoID => async dispatch => {
     completetodosRef.child(ToDoID).remove();
 };
 export const fetchCompletedToDos = () => async dispatch => {
-    completetodosRef.on("value", snapshot => {
+    completetodosRef.orderByChild("deadline").on("value", snapshot => {
         dispatch({
             type: FETCH_COMPLETEDTODOS,
             payload: snapshot.val()
