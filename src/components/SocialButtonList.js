@@ -53,14 +53,14 @@ const SocialButtonList = ({ history, buttonList, auth, currentProviders }) => {
     const renderButtonList = provder => {
         if (!auth().currentUser) {
             return (
-                <a
+                <button
                     key={provder}
                     className={`btn btn-block btn-social btn-${provder} btn-lg`}
                     onClick={e => authenticate(e, provder)}
                 >
                     <span className={`fab fa-${provder}`}></span>
                     Sign in with  {provder}
-                </a>
+                </button>
             );
 
         }

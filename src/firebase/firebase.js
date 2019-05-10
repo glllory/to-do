@@ -12,9 +12,6 @@ const config = {
 
 const app = firebase.initializeApp(config);
 const databaseRef = firebase.database().ref();
-
 export const UsersRef = databaseRef.child("Users");
 
-export const todosRef = databaseRef.child("todos")
-export const completetodosRef = databaseRef.child("completetodos")
 export default app;

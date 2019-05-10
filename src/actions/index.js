@@ -1,7 +1,5 @@
-import { UsersRef, todosRef, completetodosRef } from '../firebase/firebase'
+import { UsersRef } from '../firebase/firebase'
 import { FETCH_TODOS, FETCH_COMPLETEDTODOS } from './types'
-import { auth } from '../firebase/auth';
-
 
 // Uncompleted To Do list "child"
 export const addToDo = (newToDo, uEmail) => async dispatch => {
@@ -44,6 +42,7 @@ export const fetchCompletedToDos = (uEmail) => async dispatch => {
         });
     });
 };
+
 
 // delete all list
 export const deleteAll = (uEmail) => async dispatch => {
