@@ -7,7 +7,7 @@ import List from './List';
 import { Jumbotron, Button, Row, Col } from 'reactstrap';
 import '../containers/App.scss';
 
-class Dashboard extends Component {
+class ToDoApp extends Component {
     static propTypes = {
         providerData: PropTypes.arrayOf(PropTypes.object).isRequired
     };
@@ -20,7 +20,10 @@ class Dashboard extends Component {
         providerData: this.props.providerData
     };
 
-    componentDidMount() {
+    componentWillMount() {
+        console.log("yyyyyyyyyyyy componentWillMount")
+    }
+    componentDidMount = () => {
         this.updateProviders(this.state.providerData);
     }
 
@@ -58,4 +61,4 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard;
+export default ToDoApp;

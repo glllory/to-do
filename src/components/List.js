@@ -13,8 +13,7 @@ class List extends Component {
         super(props);
         this.state = {
             task: "",
-            deadline: new Date(),
-            uEmail: auth.getAuth().currentUser.email
+            deadline: new Date()
         }
     }
 
@@ -28,9 +27,9 @@ class List extends Component {
 
     formSubmit = e => {
         e.preventDefault();
-        const { task, deadline, uEmail } = this.state;
+        const { task, deadline } = this.state;
         const { addToDo } = this.props;
-        addToDo({ uEmail, task, deadline: deadline.getTime() / 1000 | 0 });
+        addToDo({ task, deadline: deadline.getTime() / 1000 | 0 }, auth.getAuth().currentUser.email);
         this.setState({ task: "", deadline: new Date() });
     };
 

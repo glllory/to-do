@@ -30,7 +30,7 @@ const SocialButtonList = ({ history, buttonList, auth, currentProviders }) => {
     const authHandler = authData => {
         if (authData) {
             if (currentProviders === null) {
-                history.push('/dashboard');
+                history.push('/todoapp');
             } else {
                 currentProviders(authData.user.providerData);
             }

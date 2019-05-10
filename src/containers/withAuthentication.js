@@ -11,7 +11,10 @@ export default WrappedComponent => {
         componentDidMount() {
             auth.getAuth().onAuthStateChanged(user => {
                 if (user) {
+                    console.log("Umail from secure: ", user.email);
                     this.setState({ providerData: user.providerData });
+                    console.info("providerData: ", user.providerData);
+
                 } else {
                     console.info('Must be authenticated');
                     this.props.history.push('/');

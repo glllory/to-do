@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchCompletedToDos } from '../actions';
 import _ from 'lodash';
+import { auth } from '../firebase';
 import CompletedItem from './CompletedItem';
 
 class CompletedList extends Component {
 
     componentWillMount() {
-        this.props.fetchCompletedToDos();
+        this.props.fetchCompletedToDos(auth.getAuth().currentUser.email);
     }
 
     render() {

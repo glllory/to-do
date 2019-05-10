@@ -1,38 +1,41 @@
-import { todosRef, completetodosRef } from '../firebase/firebase'
+import { UsersRef, todosRef, completetodosRef } from '../firebase/firebase'
 import { FETCH_TODOS, FETCH_COMPLETEDTODOS } from './types'
 
 // Uncompleted To Do list "child"
-export const addToDo = newToDo => async dispatch => {
-    todosRef.push().set(newToDo);
+export const addToDo = (newToDo, uEmail) => async dispatch => {
+    var cleanEmail = uEmail.replace(/\./g, ',');
+    UsersRef.child(cleanEmail).child("todos").push().set(newToDo);
 };
-export const deleteToDo = ToDoID => async dispatch => {
-    todosRef.child(ToDoID).remove();
+
+export const deleteToDo = (ToDoID, uEmail) => async dispatch => {
+    var cleanEmail = uEmail.replace(/\./g, ',');
+    UsersRef.child(cleanEmail).child("todos").child(ToDoID).remove();
 };
-export const fetchToDos = uEmail => async dispatch => {
-    // todosRef.on("value", snapshot => {
-    //     dispatch({
-    //         type: FETCH_TODOS,
-    //         payload: snapshot.val()
-    //     });
-    // });
-    todosRef.orderByChild("deadline").on("value", snapshot => {
+
+export const fetchToDos = (uEmail) => async dispatch => {
+    var cleanEmail = uEmail.replace(/\./g, ',');
+    UsersRef.child(cleanEmail).child("todos").on("value", snapshot => {
         dispatch({
             type: FETCH_TODOS,
             payload: snapshot.val()
         });
     });
-
 };
 
 // Completed To Do list "child"
-export const addCompleteToDo = completeToDo => async dispatch => {
-    completetodosRef.push().set(completeToDo);
+export const addCompleteToDo = (completeToDo, uEmail) => async dispatch => {
+    var cleanEmail = uEmail.replace(/\./g, ',');
+    UsersRef.child(cleanEmail).child("completetodos").push().set(completeToDo);
 };
-export const deleteCompleteToDo = ToDoID => async dispatch => {
-    completetodosRef.child(ToDoID).remove();
+
+export const deleteCompleteToDo = (ToDoID, uEmail) => async dispatch => {
+    var cleanEmail = uEmail.replace(/\./g, ',');
+    UsersRef.child(cleanEmail).child("completetodos").child(ToDoID).remove();
 };
-export const fetchCompletedToDos = () => async dispatch => {
-    completetodosRef.orderByChild("deadline").on("value", snapshot => {
+
+export const fetchCompletedToDos = (uEmail) => async dispatch => {
+    var cleanEmail = uEmail.replace(/\./g, ',');
+    UsersRef.child(cleanEmail).child("completetodos").on("value", snapshot => {
         dispatch({
             type: FETCH_COMPLETEDTODOS,
             payload: snapshot.val()

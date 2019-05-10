@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteToDo, addCompleteToDo } from '../actions';
+import { auth } from '../firebase';
 
 class UnCompletedItem extends Component {
 
     completeClick = (todoId, todo) => {
         const { addCompleteToDo, deleteToDo } = this.props;
-        deleteToDo(todoId);
+        deleteToDo(todoId, auth.getAuth().currentUser.email);
         var nowTime = new Date();
-        addCompleteToDo({ deadline: nowTime.getTime() / 1000 | 0, task: todo.task, uEmail: todo.uEmail });
+        addCompleteToDo(
+            { deadline: nowTime.getTime() / 1000 | 0, task: todo.task },
+            auth.getAuth().currentUser.email
+        );
     };
 
     deleteClick = todoId => {
         const { deleteToDo } = this.props;
-        deleteToDo(todoId);
+        deleteToDo(todoId, auth.getAuth().currentUser.email);
     };
 
     render() {

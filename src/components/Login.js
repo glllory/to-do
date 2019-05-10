@@ -27,10 +27,11 @@ const buttonList = {
 };
 
 class Login extends Component {
+
     componentDidMount() {
         auth.getAuth().onAuthStateChanged(user => {
             if (user) {
-                this.props.history.push('/dashboard');
+                this.props.history.push('/todoapp');
             }
         });
     }
