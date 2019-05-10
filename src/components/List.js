@@ -76,8 +76,18 @@ class List extends Component {
             <React.Fragment>
                 <br />
                 <div>
-                    <p className="cBtn" onClick={this.props.deleteAll} ><i className="fas fa-trash"></i>All</p>
-                    <p className="cBtn" onClick={this.props.deleteAllCompleted} ><i className="fas fa-trash"></i>Completed Tasks</p>
+                    <p
+                        className="cBtn"
+                        onClick={() => this.props.deleteAll(auth.getAuth().currentUser.email)} >
+                        <i className="fas fa-trash"></i>
+                        All</p>
+
+                    <p
+                        className="cBtn"
+                        onClick={() => this.props.deleteAllCompleted(auth.getAuth().currentUser.email)} >
+                        <i className="fas fa-trash"></i>
+                        Completed Tasks</p>
+
                 </div>
                 <hr className="my-2" />
                 {this.renderForm()}
