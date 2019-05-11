@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import Delay from 'react-delay';
+import { Spinner, Row, Col, Container } from 'reactstrap';
+import Footer from '../components/Footer';
+
 import { auth } from '../firebase';
+import '../containers/App.scss';
 
 export default WrappedComponent => {
     class WithAuthentication extends Component {
@@ -29,9 +33,26 @@ export default WrappedComponent => {
                     providerData={this.state.providerData}
                 />
             ) : (
-                    <Delay wait={250}>
-                        <p>Loading...</p>
-                    </Delay>
+                    <Container>
+                        <Row>
+                            <Col></Col>
+                            <Col lg={8}>
+                                <Delay wait={250}>
+                                    <Spinner animation="border" role="status">
+                                        <span className="sr-only">Loading...</span>
+                                    </Spinner>
+                                </Delay>
+                            </Col>
+                            <Col></Col>
+                        </Row>
+                        <Row>
+                            <Col></Col>
+                            <Col lg={8}>
+                                <Footer />
+                            </Col>
+                            <Col></Col>
+                        </Row>
+                    </Container>
                 );
         }
     }

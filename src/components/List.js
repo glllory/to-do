@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../actions';
+import { addToDo } from '../actions';
 import Calendarbox from './Calendar';
 import UncompletedList from './UncompletedList'
 import CompletedList from './CompletedList'
@@ -101,4 +101,4 @@ class List extends Component {
     }
 }
 
-export default connect(null, actions)(List);
+export default connect(null, { addToDo })(List);

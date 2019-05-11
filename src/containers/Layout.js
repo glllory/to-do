@@ -26,11 +26,8 @@ const Layout = ({ children }) => {
                     </Col>
                     <Col></Col>
                 </Row>
-
             </Container>
-
         </div>
-
     );
 };
 

@@ -31,9 +31,19 @@ i{
   padding-top: 25px !important ;
   background-color: #ffffff !important ;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important ;
-  
-}
+  }
 
+.spinner-border {
+  width: 4rem !important;
+  height: 4rem !important;
+  vertical-align: text-bottom !important;
+  border: .50em solid #ffffff !important;
+  border-right-color: transparent !important;
+  border-radius: 50% !important;
+  -webkit-animation: spinner-border .75s linear infinite !important;
+  animation: spinner-border .75s linear infinite !important;
+  margin: 40% 45%;
+}
 // Task
 // ###################################
 .task-test{
