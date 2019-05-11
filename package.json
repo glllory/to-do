@@ -1,5 +1,5 @@
 {
-  "homepage": "http://glllory.github.io/to-do-app",
+  "homepage": "http://glllory.github.io/to-do-app/todoapp",
   "name": "to-do-app",
   "version": "0.1.0",
   "private": true,
@@ -43,5 +43,17 @@
   ],
   "devDependencies": {
     "gh-pages": "^2.0.1"
-  }
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glllory/to-do-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/glllory/to-do-app/issues"
+  },
+  "description": ""
 }
