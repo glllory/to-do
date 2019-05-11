@@ -5,22 +5,7 @@ import { Row, Col } from 'reactstrap';
 
 class SocialProfileList extends PureComponent {
     static propTypes = {
-        auth: PropTypes.func.isRequired,
         providerData: PropTypes.arrayOf(PropTypes.object).isRequired,
-    };
-
-    renderProfileList = ({ providerId, photoURL }) => {
-        const providerName = providerId.split('.')[0];
-
-        return (
-            <div key={providerName}>
-                <img
-                    src={photoURL}
-                    alt={providerName}
-                    className="profile--photo"
-                />
-            </div>
-        );
     };
 
     render() {
@@ -29,7 +14,11 @@ class SocialProfileList extends PureComponent {
                 <Row>
                     <Col ></Col>
                     <Col lg={6} className="text-center">
-                        {this.props.providerData.map(this.renderProfileList)}
+                        <img
+                            src={this.props.providerData[0].photoURL}
+                            alt={this.props.providerData[0].providerName}
+                            className="profile--photo"
+                        />
                     </Col>
                     <Col></Col>
                 </Row>

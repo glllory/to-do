@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Delay from 'react-delay';
 import { Spinner, Row, Col, Container } from 'reactstrap';
 import Footer from '../components/Footer';
-
 import { auth } from '../firebase';
 import '../containers/App.scss';
 
@@ -15,10 +14,7 @@ export default WrappedComponent => {
         componentDidMount() {
             auth.getAuth().onAuthStateChanged(user => {
                 if (user) {
-                    console.log("Umail from secure: ", user.email);
                     this.setState({ providerData: user.providerData });
-                    console.info("providerData: ", user.providerData);
-
                 } else {
                     console.info('Must be authenticated');
                     this.props.history.push('/');

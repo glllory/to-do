@@ -6,11 +6,7 @@ import { auth } from '../firebase';
 const buttonList = {
     github: {
         visible: true,
-        provider: () => {
-            const provider = auth.githubOAuth();
-            provider.addScope('user');
-            return provider;
-        }
+        provider: () => auth.githubOAuth()
     },
     facebook: {
         visible: true,

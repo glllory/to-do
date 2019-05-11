@@ -11,29 +11,24 @@ const propTypes = {
         github: PropTypes.shape({
             provider: PropTypes.func.isRequired
         }),
-        twitter: PropTypes.shape({
+        facebook: PropTypes.shape({
             provider: PropTypes.func.isRequired
         }),
-        facebook: PropTypes.shape({
+        google: PropTypes.shape({
+            provider: PropTypes.func.isRequired
+        }),
+        twitter: PropTypes.shape({
             provider: PropTypes.func.isRequired
         })
     }).isRequired,
     auth: PropTypes.func.isRequired,
-    currentProviders: PropTypes.func
 };
 
-const defaultProps = {
-    currentProviders: null
-};
+const SocialButtonList = ({ history, buttonList, auth }) => {
 
-const SocialButtonList = ({ history, buttonList, auth, currentProviders }) => {
     const authHandler = authData => {
         if (authData) {
-            if (currentProviders === null) {
-                history.push('/todoapp');
-            } else {
-                currentProviders(authData.user.providerData);
-            }
+            history.push('/todoapp');
         } else {
             console.error('Error authenticating');
         }
@@ -41,13 +36,10 @@ const SocialButtonList = ({ history, buttonList, auth, currentProviders }) => {
 
     const authenticate = (e, provider) => {
         const providerOAuth = buttonList[provider].provider();
-
-        if (!auth().currentUser) {
-            auth()
-                .signInWithPopup(providerOAuth)
-                .then(authHandler)
-                .catch(err => console.error(err));
-        }
+        auth()
+            .signInWithPopup(providerOAuth)
+            .then(authHandler)
+            .catch(err => console.error(err));
     };
 
     const renderButtonList = provder => {
@@ -84,6 +76,5 @@ const SocialButtonList = ({ history, buttonList, auth, currentProviders }) => {
 };
 
 SocialButtonList.propTypes = propTypes;
-SocialButtonList.defaultProps = defaultProps;
 
 export default withRouter(SocialButtonList);

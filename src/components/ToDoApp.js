@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Layout from '../containers/Layout'
-import SocialProfileList from './SocialProfileList';
+import SocialProfile from './SocialProfile';
 import { auth } from '../firebase';
 import List from './List';
 import { Jumbotron, Button, Row, Col } from 'reactstrap';
-import '../containers/App.scss';
 
 class ToDoApp extends Component {
     static propTypes = {
@@ -20,23 +19,9 @@ class ToDoApp extends Component {
         providerData: this.props.providerData
     };
 
-    componentWillMount() {
-        console.log("yyyyyyyyyyyy componentWillMount")
-    }
-    componentDidMount = () => {
-        this.updateProviders(this.state.providerData);
-    }
-
     componentWillUnmount = () => {
-        this.updateProviders({ providerData: [] });
+        this.setState({ providerData: [] });
     }
-    handleCurrentProviders = providerData => {
-        this.updateProviders(providerData);
-    };
-
-    updateProviders = providerData => {
-        this.setState({ providerData });
-    };
 
     render() {
         return (
@@ -49,8 +34,7 @@ class ToDoApp extends Component {
                         <Col className="text-right"><Button size="sm" onClick={() => auth.getAuth().signOut()}> Sign Out </Button></Col>
                     </Row>
 
-                    <SocialProfileList
-                        auth={auth.getAuth}
+                    <SocialProfile
                         providerData={this.state.providerData}
                     />
 
