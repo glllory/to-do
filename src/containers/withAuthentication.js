@@ -11,7 +11,7 @@ export default WrappedComponent => {
             providerData: []
         };
 
-        componentDidMount() {
+        componentDidMount = () => {
             auth.getAuth().onAuthStateChanged(user => {
                 if (user) {
                     this.setState({ providerData: user.providerData });
@@ -20,6 +20,10 @@ export default WrappedComponent => {
                     this.props.history.push('/');
                 }
             });
+        }
+
+        componentWillUnmount = () => {
+            this.setState({ providerData: [] });
         }
 
         render() {
