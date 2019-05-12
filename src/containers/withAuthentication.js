@@ -14,6 +14,7 @@ export default WrappedComponent => {
         componentDidMount = () => {
             auth.getAuth().onAuthStateChanged(user => {
                 if (user) {
+                    console.log("HEY I'M: ", user);
                     this.setState({ providerData: user.providerData });
                 } else {
                     console.info('Must be authenticated');

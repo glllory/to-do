@@ -1,68 +1,36 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# To-Do Web App 
 
-## Available Scripts
+## Motivation
 
-In the project directory, you can run:
+This application was built to practice React more in advance with state management tool like **Redux**.
 
-### `npm start`
+## Built With
+### Front-end:
+- [React](https://reactjs.org)
+- [Redux](https://reactjs.org)
+### Back-end:
+- [Firebase Realtime Database](https://firebase.google.com/)
+## Styled with
+- [React Bootstrap](https://react-bootstrap.github.io/)
+- [Social Sign-In Buttons](https://github.com/lipis/bootstrap-social)
+- [fontawesome](https://fontawesome.com/)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Functionalty
+* **Authenticate users by integrating with federated identity providers**:  
+Using Firebase Authentication SDK provides methods that allow users to sign in with their Google, Facebook, Twitter, and GitHub accounts.
+* **Same data even with different authentication provides**:  
+Users get the same data even if they are signed in with different social media accounts because the data retrieved from the DB by their Emails.
+* **Add to do task**:  
+Users can add to do tasks and set the deadline for the tasks by choosing the day and time for tasks to be done from the rendered calendar.
+* **Mark to do tasks as completed tasks**:  
+Users can marke tasks as completed to move them to the completed tasks list.
+* **Unmark completed tasks**:  
+Users can unmarke completed tasks to move them to the to do tasks list again.
+* **Delete task**:  
+Users can delete each task from there to do tasks list or completed tasks list.
+* **Delete All tasks**.  
+* **Delete All completed tasks only**.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Be More Productive & Start Using It: [TODO](#)
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Native One Coming Soon...
