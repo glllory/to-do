@@ -8,7 +8,7 @@ import CompletedItem from './CompletedItem';
 class CompletedList extends Component {
 
     componentWillMount() {
-        this.props.fetchCompletedToDos(auth.getAuth().currentUser.email);
+        this.props.fetchCompletedToDos(auth.getAuth().currentUser.providerData[0].email);
     }
 
     render() {

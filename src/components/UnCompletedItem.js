@@ -11,13 +11,13 @@ class UnCompletedItem extends Component {
         var nowTime = new Date();
         addCompleteToDo(
             { deadline: nowTime.getTime() / 1000 | 0, task: todo.task },
-            auth.getAuth().currentUser.email
+            auth.getAuth().currentUser.providerData[0].email
         );
     };
 
     deleteClick = todoId => {
         const { deleteToDo } = this.props;
-        deleteToDo(todoId, auth.getAuth().currentUser.email);
+        deleteToDo(auth.getAuth().currentUser.providerData[0].email);
     };
 
     render() {

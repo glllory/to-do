@@ -29,7 +29,11 @@ class List extends Component {
         e.preventDefault();
         const { task, deadline } = this.state;
         const { addToDo } = this.props;
-        addToDo({ task, deadline: deadline.getTime() / 1000 | 0 }, auth.getAuth().currentUser.email);
+        addToDo({
+            task, deadline: deadline.getTime() / 1000 | 0
+        },
+            auth.getAuth().currentUser.providerData[0].email
+        );
         this.setState({ task: "", deadline: new Date() });
     };
 
@@ -78,13 +82,13 @@ class List extends Component {
                 <div>
                     <p
                         className="cBtn"
-                        onClick={() => this.props.deleteAll(auth.getAuth().currentUser.email)} >
+                        onClick={() => this.props.deleteAll(auth.getAuth().currentUser.providerData[0].email)} >
                         <i className="fas fa-trash"></i>
                         All</p>
 
                     <p
                         className="cBtn"
-                        onClick={() => this.props.deleteAllCompleted(auth.getAuth().currentUser.email)} >
+                        onClick={() => this.props.deleteAllCompleted(auth.getAuth().currentUser.providerData[0].email)} >
                         <i className="fas fa-trash"></i>
                         Completed Tasks</p>
 

@@ -8,7 +8,7 @@ import UnCompletedItem from './UnCompletedItem';
 class UncompletedList extends Component {
 
     componentWillMount() {
-        this.props.fetchToDos(auth.getAuth().currentUser.email);
+        this.props.fetchToDos(auth.getAuth().currentUser.providerData[0].email);
     }
 
     render() {

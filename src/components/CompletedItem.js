@@ -7,11 +7,11 @@ class CompletedItem extends Component {
 
     unCompleteClick = (todoId, todo) => {
         const { deleteCompleteToDo, addToDo } = this.props;
-        deleteCompleteToDo(todoId, auth.getAuth().currentUser.email);
+        deleteCompleteToDo(todoId, auth.getAuth().currentUser.providerData[0].email);
         var nowTime = new Date();
         addToDo(
             { deadline: nowTime.getTime() / 1000 | 0, task: todo.task },
-            auth.getAuth().currentUser.email
+            auth.getAuth().currentUser.providerData[0].email
         );
     };
 
