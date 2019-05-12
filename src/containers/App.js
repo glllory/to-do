@@ -7,7 +7,7 @@ import withAuthentication from '../containers/withAuthentication';
 class App extends Component {
   render() {
     return (
-      <Router>
+      <Router basename="/todo">
         <Switch>
           <Route path="/" exact component={Login} />
           <Route path="/todoapp" component={withAuthentication(ToDoApp)} />
