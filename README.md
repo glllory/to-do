@@ -1,7 +1,7 @@
-# To-Do Web App 
+# To-Do Web App  
+![demo](http://g.recordit.co/2CX6aJMz5a.gif)  
 
 ## Motivation
-
 This application was built to practice React more in advance with state management tool like **Redux**.
 
 ## Built With
