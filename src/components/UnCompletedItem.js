@@ -1,37 +1,36 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteToDo, addCompleteToDo } from '../actions';
-import { auth } from '../firebase';
 
 class UnCompletedItem extends Component {
 
     completeClick = (todoId, todo) => {
-        const { addCompleteToDo, deleteToDo } = this.props;
-        deleteToDo(todoId, auth.getAuth().currentUser.email);
+        const { addCompleteToDo, deleteToDo, uEmail } = this.props;
+        deleteToDo(todoId, uEmail);
         var nowTime = new Date();
         addCompleteToDo(
             { deadline: nowTime.getTime() / 1000 | 0, task: todo.task },
-            auth.getAuth().currentUser.providerData[0].email
+            uEmail
         );
     };
 
     deleteClick = todoId => {
-        const { deleteToDo } = this.props;
-        deleteToDo(auth.getAuth().currentUser.providerData[0].email);
+        const { deleteToDo, uEmail } = this.props;
+        deleteToDo(todoId, uEmail);
     };
 
     render() {
-        const { todoId, todo } = this.props;
+        const { todoId, todo, uEmail } = this.props;
         const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
         const date = new Date(todo.deadline * 1000);
         let formatted_date = `${months[date.getMonth()]} ${date.getDate()},${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
 
         return (
             <div className="item">
-                <i className={"far fa-circle"} onClick={() => this.completeClick(todoId, todo)}></i>
+                <i className={"far fa-circle"} onClick={() => this.completeClick(todoId, todo, uEmail)}></i>
                 <i className="task-test">{todo.task}</i>
                 <div className="rightButtons">
-                    <i className="fas fa-times-circle" onClick={() => this.deleteClick(todoId)}></i>
+                    <i className="fas fa-times-circle" onClick={() => this.deleteClick(todoId, uEmail)}></i>
                 </div>
                 <br />
                 <i className="task-deadline">Due: {formatted_date}</i>

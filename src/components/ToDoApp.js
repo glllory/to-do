@@ -8,19 +8,22 @@ import { Jumbotron, Button, Row, Col } from 'reactstrap';
 
 class ToDoApp extends Component {
     static propTypes = {
-        providerData: PropTypes.arrayOf(PropTypes.object).isRequired
+        providerData: PropTypes.arrayOf(PropTypes.object).isRequired,
+        uEmail: PropTypes.string.isRequired
     };
 
     static defaultProps = {
-        providerData: []
+        providerData: [],
+        uEmail: ""
     };
 
     state = {
-        providerData: this.props.providerData
+        providerData: this.props.providerData,
+        uEmail: this.props.uEmail
     };
 
     componentWillUnmount = () => {
-        this.setState({ providerData: [] });
+        this.setState({ providerData: [], uEmail: "" });
     }
 
     render() {
@@ -36,9 +39,10 @@ class ToDoApp extends Component {
 
                     <SocialProfile
                         providerData={this.state.providerData}
+                        uEmail={this.state.uEmail}
                     />
 
-                    <List />
+                    <List uEmail={this.state.uEmail} />
                 </Jumbotron>
             </Layout>
         );

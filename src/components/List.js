@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addToDo } from '../actions';
+import * as actions from '../actions';
 import Calendarbox from './Calendar';
 import UncompletedList from './UncompletedList'
 import CompletedList from './CompletedList'
 import { Row, Col } from 'reactstrap';
-import { auth } from '../firebase';
 
 
 class List extends Component {
@@ -13,7 +12,8 @@ class List extends Component {
         super(props);
         this.state = {
             task: "",
-            deadline: new Date()
+            deadline: new Date(),
+            uEmail: this.props.uEmail
         }
     }
 
@@ -32,7 +32,7 @@ class List extends Component {
         addToDo({
             task, deadline: deadline.getTime() / 1000 | 0
         },
-            auth.getAuth().currentUser.providerData[0].email
+            this.state.uEmail
         );
         this.setState({ task: "", deadline: new Date() });
     };
@@ -82,13 +82,13 @@ class List extends Component {
                 <div>
                     <p
                         className="cBtn"
-                        onClick={() => this.props.deleteAll(auth.getAuth().currentUser.providerData[0].email)} >
+                        onClick={() => this.props.deleteAll(this.state.uEmail)} >
                         <i className="fas fa-trash"></i>
                         All</p>
 
                     <p
                         className="cBtn"
-                        onClick={() => this.props.deleteAllCompleted(auth.getAuth().currentUser.providerData[0].email)} >
+                        onClick={() => this.props.deleteAllCompleted(this.state.uEmail)} >
                         <i className="fas fa-trash"></i>
                         Completed Tasks</p>
 
@@ -97,12 +97,12 @@ class List extends Component {
                 {this.renderForm()}
                 <hr className="my-2" />
                 <br />
-                <UncompletedList />
-                <CompletedList />
+                <UncompletedList uEmail={this.state.uEmail} />
+                <CompletedList uEmail={this.state.uEmail} />
 
-            </React.Fragment>
+            </React.Fragment >
         );
     }
 }
 
-export default connect(null, { addToDo })(List);
+export default connect(null, actions)(List);

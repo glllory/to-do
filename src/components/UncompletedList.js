@@ -2,19 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchToDos } from '../actions';
 import _ from 'lodash';
-import { auth } from '../firebase';
 import UnCompletedItem from './UnCompletedItem';
 
 class UncompletedList extends Component {
 
     componentWillMount() {
-        this.props.fetchToDos(auth.getAuth().currentUser.providerData[0].email);
+        this.props.fetchToDos(this.props.uEmail);
     }
 
     render() {
-        const { uncompletedState } = this.props;
+        const { uncompletedState, uEmail } = this.props;
         const toDos = _.map(uncompletedState, (value, key) => {
-            return <UnCompletedItem key={key} todoId={key} todo={value} />;
+            return <UnCompletedItem key={key} todoId={key} todo={value} uEmail={uEmail} />;
         });
         if (!_.isEmpty(toDos)) {
             return (

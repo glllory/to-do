@@ -8,13 +8,28 @@ import '../containers/App.scss';
 export default WrappedComponent => {
     class WithAuthentication extends Component {
         state = {
-            providerData: []
+            providerData: [],
+            uEmail: ""
         };
 
         componentDidMount = () => {
             auth.getAuth().onAuthStateChanged(user => {
                 if (user) {
-                    this.setState({ providerData: user.providerData });
+
+                    var providerId = user.providerData[0].providerId.split('.')[0];
+
+                    if (providerId === "twitter" || providerId === "facebook") {
+                        this.setState({
+                            providerData: user.providerData,
+                            uEmail: user.providerData[0].email
+                        });
+                    } else {
+                        this.setState({
+                            providerData: user.providerData,
+                            uEmail: user.email
+                        });
+                    }
+
                 } else {
                     console.info('Must be authenticated');
                     this.props.history.push('/');
@@ -31,6 +46,7 @@ export default WrappedComponent => {
                 <WrappedComponent
                     {...this.props}
                     providerData={this.state.providerData}
+                    uEmail={this.state.uEmail}
                 />
             ) : (
                     <Container>

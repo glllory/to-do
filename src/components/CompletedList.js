@@ -2,19 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchCompletedToDos } from '../actions';
 import _ from 'lodash';
-import { auth } from '../firebase';
 import CompletedItem from './CompletedItem';
 
 class CompletedList extends Component {
 
     componentWillMount() {
-        this.props.fetchCompletedToDos(auth.getAuth().currentUser.providerData[0].email);
+        this.props.fetchCompletedToDos(this.props.uEmail);
     }
 
     render() {
-        const { completedState } = this.props;
+        const { completedState, uEmail } = this.props;
         const toDos = _.map(completedState, (value, key) => {
-            return <CompletedItem key={key} todoId={key} todo={value} />;
+            return <CompletedItem key={key} todoId={key} todo={value} uEmail={uEmail} />;
         });
         if (!_.isEmpty(toDos)) {
             return (
