@@ -28,7 +28,7 @@ class CompletedItem extends Component {
         return (
             <div className="item">
                 <i className={"fas fa-check-circle"} onClick={() => this.unCompleteClick(todoId, todo, uEmail)}></i>
-                <i className="task-test">{todo.task}</i>
+                <i className="task-test-com">{todo.task}</i>
                 <div className="rightButtons">
                     <i className="fas fa-times-circle" onClick={() => this.deleteClick(todoId, uEmail)}></i>
                 </div>

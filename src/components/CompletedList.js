@@ -19,7 +19,7 @@ class CompletedList extends Component {
             return (
                 <div>
                     <hr className="my-2" />
-                    <p>Completed Tasks:</p>
+                    <p>Completed Tasks</p>
                     {toDos}
                 </div>
             );

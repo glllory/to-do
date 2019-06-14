@@ -4,7 +4,7 @@ import * as actions from '../actions';
 import Calendarbox from './Calendar';
 import UncompletedList from './UncompletedList'
 import CompletedList from './CompletedList'
-import { Row, Col } from 'reactstrap';
+import { Row, Col, Button } from 'reactstrap';
 
 
 class List extends Component {
@@ -80,7 +80,10 @@ class List extends Component {
             <React.Fragment>
                 <br />
                 <div>
-                    <p
+                    <Button size="sm"> Clear All </Button>
+                    <Button size="sm"> Clear Completed Tasks </Button>
+
+                    {/* <p
                         className="cBtn"
                         onClick={() => this.props.deleteAll(this.state.uEmail)} >
                         <i className="fas fa-trash"></i>
@@ -90,7 +93,7 @@ class List extends Component {
                         className="cBtn"
                         onClick={() => this.props.deleteAllCompleted(this.state.uEmail)} >
                         <i className="fas fa-trash"></i>
-                        Completed Tasks</p>
+                        Completed Tasks</p> */}
 
                 </div>
                 <hr className="my-2" />

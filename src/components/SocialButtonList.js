@@ -66,7 +66,7 @@ const SocialButtonList = ({ history, buttonList, auth }) => {
             </div>
             <Row className="login-butten">
                 <Col></Col>
-                <Col lg={6}>
+                <Col lg={5}>
                     {Object.keys(buttonList).map(renderButtonList)}
                 </Col>
                 <Col></Col>

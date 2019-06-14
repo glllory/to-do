@@ -18,7 +18,7 @@ class UncompletedList extends Component {
         if (!_.isEmpty(toDos)) {
             return (
                 <div>
-                    <p>Tasks: </p>
+                    <p>Tasks </p>
                     {toDos}
                 </div>
             );
