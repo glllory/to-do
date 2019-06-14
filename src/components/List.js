@@ -79,27 +79,21 @@ class List extends Component {
         return (
             <React.Fragment>
                 <br />
-                <div>
-                    <Button size="sm"> Clear All </Button>
-                    <Button size="sm"> Clear Completed Tasks </Button>
-
-                    {/* <p
-                        className="cBtn"
-                        onClick={() => this.props.deleteAll(this.state.uEmail)} >
-                        <i className="fas fa-trash"></i>
-                        All</p>
-
-                    <p
-                        className="cBtn"
-                        onClick={() => this.props.deleteAllCompleted(this.state.uEmail)} >
-                        <i className="fas fa-trash"></i>
-                        Completed Tasks</p> */}
-
-                </div>
                 <hr className="my-2" />
                 {this.renderForm()}
                 <hr className="my-2" />
-                <br />
+                <Row>
+                    <Col lg={6} className="text-center">
+                    </Col>
+                    <Col className="text-right">
+                        <Button size="sm"
+                            onClick={() => this.props.deleteAll(this.state.uEmail)}
+                        >Delete All</Button>
+                        <Button size="sm"
+                            onClick={() => this.props.deleteAllCompleted(this.state.uEmail)}
+                        >Delete Completed</Button>
+                    </Col>
+                </Row>
                 <UncompletedList uEmail={this.state.uEmail} />
                 <CompletedList uEmail={this.state.uEmail} />
 

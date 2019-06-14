@@ -30,7 +30,7 @@ class Header extends Component {
         if (user) {
             return (
                 <div className="text-center">
-                    <p className="greating">{`Hi, ${user} ..`}</p>
+                    <p className="greating username">{`Hi, ${user}`}</p>
                     <p className="todayTime">{"Good " + this.getGreetingTime(moment()) + ", "}It's <Moment format="ddd, D MMM YYYY, h:mm A" /> </p>
                 </div>
             )
