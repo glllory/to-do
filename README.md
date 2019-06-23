@@ -31,5 +31,3 @@ Users can delete each task from there to do tasks list or completed tasks list.
 ---
 ## [Be More Productive & Start Using It](https://glllory.github.io/to-do/#/todoapp)
 ![demo](demo.png)
-
-### Native One Coming Soon...
